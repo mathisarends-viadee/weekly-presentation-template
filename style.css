@@ -1,0 +1,19 @@
+:root {
+  --slide-padding-x: 2.5rem;
+}
+
+.slide-padding-x {
+  padding-inline: var(--slide-padding-x);
+}
+
+.slidev-code,
+.slidev-code pre,
+pre.shiki {
+  background: #fcfcfcff !important;
+  font-size: 0.8em !important;
+  border-radius: 7.5px !important;
+}
+
+.text-content + .bulleted-list {
+  margin-top: 0.45rem;
+}
