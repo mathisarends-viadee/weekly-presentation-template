@@ -9,11 +9,12 @@ Die Gestaltung der FH-Vorlage bleibt erhalten. Nur die Farbrollen sind auf viade
 | Rolle in der FH-Vorlage | viadee |
 | --- | --- |
 | Dunkelblau für Titel | Schwarz `#202020` |
-| Blau für Abschnittstitel, Nummern und Boxen | Koralle für Text `#d63a2c` (Kontrast 4,7:1) |
+| Blau für Abschnittstitel, Nummern und Boxen | Schwarz `#202020`, Box-Labels in Grau |
 | Orange für Trennlinie, Aufzählungszeichen und Akzente | viadee-Koralle `#ff5546` |
+| aktives Kapitel in der Gliederung | Koralle `#d63a2c` (Kontrast 4,7:1) |
 | Graublau für Nebentexte | neutrale Grautöne |
 
-Hervorhebungen im Fließtext (`HighlightedText`) sind halbfett in Schwarz und nicht farbig. So steht auf einer Folie nicht zu viel Rot.
+Koralle ist Akzent, keine Textfarbe: Logo, Trennlinie, Aufzählungszeichen, Balken an Definition und Zitat sowie das aktive Kapitel. Abschnittstitel und Hervorhebungen im Fließtext (`HighlightedText`) sind halbfett in Schwarz.
 
 Die Farbwerte stehen zentral in `style.css`. `uno.config.ts` stellt dazu `viadee-*`-Utilities bereit und ersetzt die blaustichige Tailwind-Grauskala durch eine neutrale. Die bisherigen `fh-*`-Klassen bleiben als Aliase verfügbar.
 

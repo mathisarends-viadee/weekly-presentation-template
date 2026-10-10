@@ -12,7 +12,7 @@ defineProps({
     type: Boolean,
     default: false
   },
-  // 'neutral' marks visited chapters in the outline.
+  // 'neutral' marks visited chapters in the outline; only the active badge is coral.
   tone: {
     type: String,
     default: 'brand',
@@ -31,7 +31,8 @@ defineProps({
     class="grid place-items-center rounded-full font-semibold flex-shrink-0 tabular-nums"
     :class="[
       {
-        'bg-viadee-coral-strong text-white': active || (!disabled && tone === 'brand'),
+        'bg-viadee-coral-strong text-white': active,
+        'bg-viadee-ink text-white': !active && !disabled && tone === 'brand',
         'bg-viadee-slate text-white': !active && !disabled && tone === 'neutral',
         'bg-viadee-gray text-white': disabled && !active
       },

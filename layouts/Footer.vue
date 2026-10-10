@@ -36,13 +36,7 @@ const deckTitle = computed(() => info.shortTitle || info.title)
 
 <template>
   <footer class="footer flex justify-between items-baseline pt-3">
-    <div class="truncate">
-      <span class="text-viadee-slate font-semibold">{{ deckTitle }}</span>
-      <template v-if="chapterTitle">
-        <span class="mx-1.5 text-viadee-gray">/</span>
-        <span>{{ chapterTitle }}</span>
-      </template>
-    </div>
+    <span class="truncate">{{ chapterTitle || deckTitle }}</span>
     <span class="page tabular-nums">{{ currentPage - 1 }}</span>
   </footer>
 </template>

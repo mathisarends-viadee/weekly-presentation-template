@@ -13,10 +13,10 @@ const info = $slidev.configs?.presentationInfo || { authors: [] }
       <CoverLogo />
 
       <div class="flex-1 flex flex-col justify-center -mt-8">
-        <h1 class="text-[5.5rem] leading-[0.95] font-bold text-viadee-ink tracking-tight mb-5">
+        <h1 class="text-[4rem] leading-[1.02] font-bold text-viadee-ink tracking-[-0.025em] mb-4">
           {{ info.closingTitle || 'Vielen Dank' }}
         </h1>
-        <p class="text-3xl text-viadee-coral-strong font-normal">
+        <p class="text-[1.6rem] text-viadee-slate font-normal tracking-[-0.01em]">
           {{ info.closingSubtitle || 'Gibt es noch Fragen?' }}
         </p>
       </div>

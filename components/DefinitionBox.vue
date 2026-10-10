@@ -12,22 +12,16 @@ defineProps({
 </script>
 
 <template>
-  <div class="relative">
-    <!-- Title Badge -->
-    <div
-      class="inline-block bg-viadee-coral-strong px-4 py-0.75 text-[0.84rem] font-semibold tracking-[0.01em] text-white"
-    >
+  <div class="bg-viadee-surface border-l-3 border-viadee-coral px-4 py-2.5">
+    <div class="mb-1 text-[0.72rem] font-semibold uppercase tracking-[0.06em] text-viadee-slate">
       {{ title }}
     </div>
+    <p class="m-0 text-[0.96rem] leading-[1.48] text-viadee-ink">
+      <slot />
+    </p>
 
-    <div class="bg-viadee-surface border-l-4 border-viadee-coral -mt-0.5 px-2.5 py-2">
-      <p class="m-0 text-[0.96rem] leading-[1.48] text-gray-800">
-        <slot />
-      </p>
-
-      <div v-if="source" class="text-right mt-2">
-        <span class="text-[0.76rem] leading-none text-gray-500">{{ source }}</span>
-      </div>
+    <div v-if="source" class="text-right mt-2">
+      <span class="text-[0.74rem] leading-none text-viadee-muted">{{ source }}</span>
     </div>
   </div>
 </template>
