@@ -14,11 +14,13 @@ defineProps({
 <template>
   <div class="relative">
     <!-- Title Badge -->
-    <div class="inline-block bg-fh-blue px-3 py-0.75 text-[0.84rem] font-semibold tracking-[0.01em] text-white">
+    <div
+      class="inline-block bg-viadee-ink px-3 py-0.75 text-[0.84rem] font-semibold tracking-[0.01em] text-white"
+    >
       {{ title }}
     </div>
 
-    <div class="bg-gray-100 -mt-0.5 px-2.5 py-1.5">
+    <div class="bg-viadee-surface -mt-0.5 px-2.5 py-1.5">
       <p class="m-0 text-[0.94rem] leading-[1.45] text-gray-800">
         <slot />
       </p>

@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-8 -mr-3">
-    <img src="/images/fh-logo.jpg" alt="FH Münster" class="h-14" />
+  <div class="ml-8 pt-3 shrink-0">
+    <img src="/images/viadee-logo.svg" alt="viadee" class="w-30 h-auto" />
   </div>
 </template>

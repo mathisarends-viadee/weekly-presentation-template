@@ -33,7 +33,7 @@ provide('footnotes', footnotes)
       <Logo />
     </div>
 
-    <Divider :length="100" color="border-fh-orange" thickness="border-t-2" class="mb-3" />
+    <Divider :length="100" color="border-viadee-coral" thickness="border-t-2" class="mb-3" />
 
     <div class="flex-1 py-3.5 flex flex-col gap-4 overflow-hidden">
       <slot />
@@ -42,7 +42,6 @@ provide('footnotes', footnotes)
     <FootnoteList :divider-length="25" />
 
     <Footer
-      :presentation="$frontmatter?.presentation"
       :chapter="$frontmatter?.chapter ? String($frontmatter.chapter) : undefined"
       :section="$frontmatter?.section"
       :current-page="$slidev?.nav.currentPage"

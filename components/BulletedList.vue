@@ -36,7 +36,7 @@ defineProps({
   position: absolute;
   left: 0.2rem;
   top: 0.4rem;
-  color: var(--fh-dark-blue, #0066b3);
+  color: var(--viadee-ink);
   font-size: 0.35em;
 }
 
@@ -56,7 +56,7 @@ defineProps({
 .bulleted-list :deep(li > ul > li)::before {
   content: '■';
   font-size: 0.3em;
-  color: var(--fh-dark-blue, #0066b3);
+  color: var(--viadee-ink);
 }
 
 .bulleted-list :deep(li > ul > li > ul > li) {
@@ -68,11 +68,11 @@ defineProps({
 .bulleted-list :deep(li > ul > li > ul > li)::before {
   content: '■';
   font-size: 0.25em;
-  color: var(--fh-gray, #6b7280);
+  color: var(--viadee-gray);
 }
 
 .bulleted-list :deep(.highlight) {
-  color: var(--fh-orange, #f79646);
+  color: var(--viadee-highlight);
   font-weight: 600;
   display: inline;
 }

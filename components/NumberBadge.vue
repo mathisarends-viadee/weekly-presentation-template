@@ -25,9 +25,9 @@ defineProps({
     class="grid place-items-center rounded-full font-semibold flex-shrink-0 tabular-nums"
     :class="[
       {
-        'bg-fh-orange text-white': active,
+        'bg-viadee-coral text-viadee-ink': active,
         'bg-gray-400 text-white': disabled,
-        'bg-fh-dark-blue text-white': !active && !disabled
+        'bg-viadee-ink text-white': !active && !disabled
       },
       size === 'sm' ? 'w-4 h-4 text-[11px] leading-4' : 'w-5.5 h-5.5 text-sm leading-5.5'
     ]"

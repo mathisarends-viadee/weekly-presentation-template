@@ -5,7 +5,7 @@ import CoverLogo from '@layouts/CoverLogo.vue'
 const info = $slidev.configs?.presentationInfo || {
   title: '',
   subtitle: '',
-  semester: '',
+  event: '',
   authors: []
 }
 </script>
@@ -19,31 +19,34 @@ const info = $slidev.configs?.presentationInfo || {
 
       <div class="flex-1 flex flex-col justify-center -mt-4">
         <p
-          v-if="info.semester"
-          class="text-fh-orange text-sm font-semibold tracking-[0.28em] uppercase mb-3"
+          v-if="info.event || info.semester"
+          class="text-viadee-highlight text-sm font-semibold tracking-[0.28em] uppercase mb-3"
         >
-          {{ info.semester }}
+          {{ [info.event || info.semester, info.date].filter(Boolean).join(' · ') }}
         </p>
 
-        <h1 class="text-[5.5rem] leading-[0.95] font-black text-fh-navy tracking-tight mb-6">
+        <h1 class="text-[5.5rem] leading-[0.95] font-black text-viadee-ink tracking-tight mb-6">
           {{ info.title }}
         </h1>
 
-        <h2 class="text-3xl font-normal text-fh-slate leading-snug max-w-xl">
+        <h2 class="text-3xl font-normal text-viadee-slate leading-snug max-w-xl">
           {{ info.subtitle }}
         </h2>
       </div>
 
       <div>
-        <div class="h-px w-full bg-fh-line mb-7" />
+        <div class="h-px w-full bg-viadee-line mb-7" />
 
         <div class="grid grid-cols-3 gap-x-8">
           <div v-for="author in info.authors" :key="author.name">
-            <p class="text-[15px] font-bold text-fh-navy leading-tight tracking-[-0.005em]">
+            <p class="text-[15px] font-bold text-viadee-ink leading-tight tracking-[-0.005em]">
               {{ author.name }}
             </p>
-            <p class="text-[13px] text-fh-muted leading-tight mt-1.5">
-              Matrikelnummer {{ author.matrikelnummer }}
+            <p
+              v-if="author.role || author.email"
+              class="text-[13px] text-viadee-muted leading-tight mt-1.5"
+            >
+              {{ author.role || author.email }}
             </p>
           </div>
         </div>

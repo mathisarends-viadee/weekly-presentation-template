@@ -1,25 +1,33 @@
 import { defineConfig } from 'unocss'
 
+// Values live in style.css so utilities, scoped CSS and diagrams share a palette.
+const brand = Object.fromEntries(
+  ['coral', 'highlight', 'violet', 'ink', 'slate', 'muted', 'gray', 'line', 'surface'].map(name => [
+    `viadee-${name}`,
+    `var(--viadee-${name})`
+  ])
+)
+
 export default defineConfig({
   theme: {
     colors: {
-      'fh-blue': '#0066b3',
-      'fh-dark-blue': '#003978',
-      'fh-navy': '#10245e',
-      'fh-orange': '#f79646',
-      'fh-gray': '#6b7280',
-      'fh-slate': '#4a6f94',
-      'fh-muted': '#8a8b93',
-      'fh-line': '#dfe3ea',
-
+      ...brand,
+      // Existing FH utility classes continue to work with viadee colors.
+      'fh-blue': brand['viadee-violet'],
+      'fh-dark-blue': brand['viadee-violet'],
+      'fh-navy': brand['viadee-ink'],
+      'fh-orange': brand['viadee-highlight'],
+      'fh-gray': brand['viadee-gray'],
+      'fh-slate': brand['viadee-slate'],
+      'fh-muted': brand['viadee-muted'],
+      'fh-line': brand['viadee-line'],
+      'fh-50': brand['viadee-surface'],
       primary: {
-        DEFAULT: '#0066b3',
-        dark: '#003978',
-        light: '#4d94d1'
+        DEFAULT: brand['viadee-violet'],
+        dark: brand['viadee-ink'],
+        light: brand['viadee-surface']
       },
-      secondary: {
-        DEFAULT: '#f79646'
-      }
+      secondary: { DEFAULT: brand['viadee-coral'] }
     }
   }
 })

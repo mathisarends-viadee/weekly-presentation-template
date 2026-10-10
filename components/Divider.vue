@@ -6,7 +6,7 @@ defineProps({
   },
   color: {
     type: String,
-    default: 'border-fh-orange'
+    default: 'border-viadee-coral'
   },
   thickness: {
     type: String,

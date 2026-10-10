@@ -1,5 +1,25 @@
+@import '@fontsource-variable/nunito-sans';
+@import '@fontsource/fira-code/400.css';
+
 :root {
+  /* viadee website palette, with neutral typography for technical presentations. */
+  --viadee-coral: #ff5546;
+  --viadee-highlight: #202020;
+  --viadee-violet: #652965;
+  --viadee-ink: #202020;
+  --viadee-slate: #525252;
+  --viadee-muted: #737373;
+  --viadee-gray: #737373;
+  --viadee-line: #e5e5e5;
+  --viadee-surface: #f5f5f5;
   --slide-padding-x: 2.5rem;
+  /* Compatibility for presentations based on the FH starter. */
+  --fh-blue: var(--viadee-violet);
+  --fh-dark-blue: var(--viadee-violet);
+  --fh-navy: var(--viadee-ink);
+  --fh-orange: var(--viadee-highlight);
+  --fh-gray: var(--viadee-gray);
+  color-scheme: light;
 }
 
 .slide-padding-x {
@@ -9,11 +29,24 @@
 .slidev-code,
 .slidev-code pre,
 pre.shiki {
-  background: #fcfcfcff !important;
+  background: var(--viadee-surface) !important;
   font-size: 0.8em !important;
   border-radius: 7.5px !important;
 }
 
 .text-content + .bulleted-list {
   margin-top: 0.45rem;
+}
+
+.slidev-layout {
+  color: var(--viadee-ink);
+}
+
+.slidev-layout a {
+  color: var(--viadee-ink);
+}
+
+.slidev-code-wrapper {
+  border: 1px solid var(--viadee-line);
+  border-radius: 7.5px;
 }

@@ -13,21 +13,23 @@ const info = $slidev.configs?.presentationInfo || { authors: [] }
       <CoverLogo />
 
       <div class="flex-1 flex flex-col justify-center -mt-8">
-        <h1 class="text-[5.5rem] leading-[0.95] font-black text-fh-navy tracking-tight mb-5">
-          Vielen Dank
+        <h1 class="text-[5.5rem] leading-[0.95] font-black text-viadee-ink tracking-tight mb-5">
+          {{ info.closingTitle || 'Vielen Dank' }}
         </h1>
-        <p class="text-3xl text-fh-orange font-normal">Gibt es noch Fragen?</p>
+        <p class="text-3xl text-viadee-highlight font-normal">
+          {{ info.closingSubtitle || 'Gibt es noch Fragen?' }}
+        </p>
       </div>
 
       <div v-if="info.authors?.length">
-        <div class="h-px w-full bg-fh-line mb-7" />
+        <div class="h-px w-full bg-viadee-line mb-7" />
 
         <div class="grid grid-cols-3 gap-x-8">
           <div v-for="author in info.authors" :key="author.name">
-            <p class="text-[15px] font-bold text-fh-navy leading-tight tracking-[-0.005em]">
+            <p class="text-[15px] font-bold text-viadee-ink leading-tight tracking-[-0.005em]">
               {{ author.name }}
             </p>
-            <p class="text-[13px] text-fh-muted leading-tight mt-1.5">{{ author.email }}</p>
+            <p class="text-[13px] text-viadee-muted leading-tight mt-1.5">{{ author.email }}</p>
           </div>
         </div>
       </div>

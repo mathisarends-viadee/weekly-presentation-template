@@ -32,10 +32,7 @@ const chapterTitle = computed(() => {
 })
 
 const footerText = computed(() => {
-  if (props.chapter && chapterTitle.value) {
-    return `${info.title} | ${info.subtitle} | ${chapterTitle.value}`
-  }
-  return `${info.title} | ${info.subtitle}`
+  return [info.shortTitle || info.title, chapterTitle.value].filter(Boolean).join(' · ')
 })
 </script>
 
@@ -43,10 +40,10 @@ const footerText = computed(() => {
   <div
     class="footer-container relative flex justify-between items-center py-1 pl-5.5 pr-7 -mx-8 -mb-4 mt-2"
   >
-    <div class="bg-white px-3 py-0.5 rounded-lg text-gray-600 text-[11px] relative z-10">
+    <div class="bg-white px-3 py-0.5 text-viadee-slate text-[11px] relative z-10">
       {{ footerText }}
     </div>
-    <span class="bg-white px-3 py-0.5 rounded-lg text-gray-600 text-[11.5px] relative z-10">
+    <span class="bg-white px-3 py-0.5 text-viadee-slate text-[11.5px] relative z-10">
       {{ currentPage - 1 }}
     </span>
   </div>

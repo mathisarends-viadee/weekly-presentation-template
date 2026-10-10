@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="bg-gray-100 border-l-4 border-fh-blue py-2.5 px-4 relative">
+  <div class="bg-viadee-surface border-l-4 border-viadee-coral py-2.5 px-4 relative">
     <p class="text-gray-700 text-base leading-normal m-0 pr-24">
       <slot />
     </p>

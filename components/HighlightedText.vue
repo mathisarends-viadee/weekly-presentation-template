@@ -2,11 +2,11 @@
 defineProps({
   color: {
     type: String,
-    default: 'var(--fh-orange, #f79646)'
+    default: 'var(--viadee-highlight)'
   },
   weight: {
     type: String,
-    default: '500'
+    default: '700'
   }
 })
 </script>

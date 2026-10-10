@@ -13,10 +13,7 @@ defineProps({
 </script>
 
 <template>
-  <figure
-    class="image-figure"
-    :style="{ maxWidth: maxWidth }"
-  >
+  <figure class="image-figure" :style="{ maxWidth: maxWidth }">
     <img
       :src="src"
       :alt="alt || title"

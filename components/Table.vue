@@ -50,12 +50,12 @@ const getColumnWidth = (index, header) => {
         :style="{ width: getColumnWidth(index, header) }"
       />
     </colgroup>
-    <thead class="bg-fh-50 border-b border-gray-300">
+    <thead class="bg-viadee-surface border-b border-gray-300">
       <tr>
         <th
           v-for="(header, index) in headers"
           :key="index"
-          class="border-r border-gray-300 px-2.5 py-1.5 text-left text-[0.8rem] font-semibold tracking-[0.01em] text-fh-dark-blue last:border-r-0"
+          class="border-r border-gray-300 px-2.5 py-1.5 text-left text-[0.8rem] font-semibold tracking-[0.01em] text-viadee-ink last:border-r-0"
         >
           {{ getHeaderText(header) }}
         </th>

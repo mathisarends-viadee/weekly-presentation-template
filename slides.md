@@ -1,24 +1,26 @@
 ---
 theme: default
 highlighter: shiki
-favicon: /images/favicon.png
+favicon: /images/favicon.svg
+colorSchema: light
 title: MongoDB
 fonts:
-  sans: 'Nunito Sans'
-  serif: 'Nunito Sans'
+  sans: 'Nunito Sans Variable'
+  serif: 'Nunito Sans Variable'
   mono: 'Fira Code'
-  weights: '400,600,700'
+  provider: none
+  weights: '400,600,700,900'
 presentationInfo:
   title: 'MongoDB'
   subtitle: 'NoSQL-Datenbanken für moderne Anwendungen'
-  semester: 'Wintersemester 2025/26'
+  event: 'viadee Tech Talk'
   authors:
     - name: 'Max Mustermann'
-      matrikelnummer: 1234567
-      email: 'max.mustermann@fh-muenster.de'
+      role: 'Software Engineering'
+      email: 'max.mustermann@example.com'
     - name: 'Anna Schmidt'
-      matrikelnummer: 7654321
-      email: 'anna.schmidt@fh-muenster.de'
+      role: 'Software Architecture'
+      email: 'anna.schmidt@example.com'
   chapters:
     - number: 1
       title: 'Einführung in MongoDB'
