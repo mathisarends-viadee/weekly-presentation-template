@@ -1,4 +1,5 @@
 import js from '@eslint/js'
+import globals from 'globals'
 import pluginVue from 'eslint-plugin-vue'
 import * as parserVue from 'vue-eslint-parser'
 import configPrettier from 'eslint-config-prettier'
@@ -7,6 +8,7 @@ import tseslint from '@typescript-eslint/eslint-plugin'
 import * as parserTypeScript from '@typescript-eslint/parser'
 
 export default [
+  { ignores: ['node_modules/**', 'dist/**', '.slidev/**', 'public/**'] },
   js.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
   configPrettier,
@@ -22,6 +24,8 @@ export default [
         sourceType: 'module'
       },
       globals: {
+        ...globals.browser,
+        ...globals.node,
         $slidev: 'readonly',
         $nav: 'readonly',
         $clicks: 'readonly',
@@ -35,11 +39,6 @@ export default [
       prettier: pluginPrettier,
       '@typescript-eslint': tseslint
     },
-    env: {
-      browser: true,
-      node: true,
-      es2021: true
-    },
     rules: {
       'prettier/prettier': 'warn',
       'vue/multi-word-component-names': 'off',
@@ -49,6 +48,6 @@ export default [
     }
   },
   {
-    ignores: ['node_modules', 'dist', '.slidev', '*.md']
+    ignores: ['node_modules/**', 'dist/**', '.slidev/**', '*.md', 'public/**']
   }
 ]
