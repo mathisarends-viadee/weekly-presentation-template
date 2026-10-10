@@ -53,7 +53,7 @@ defineProps({
 .image-caption {
   margin-top: 0.4rem;
   font-size: 0.7rem;
-  color: #6b7280;
+  color: var(--viadee-muted);
   width: 100%;
   flex-shrink: 0;
 }

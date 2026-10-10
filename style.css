@@ -9,7 +9,8 @@
   --viadee-violet: #652965;
 
   /* Neutrals. */
-  --viadee-ink: #202020; /* titles, body text */
+  --viadee-ink: #1a1a1a; /* titles, section titles, emphasis */
+  --viadee-body: #404040; /* running text */
   --viadee-slate: #525252; /* subtitles, secondary text */
   --viadee-muted: #6b6b6b; /* subtext, captions, meta */
   --viadee-gray: #a3a3a3; /* disabled states, minor markers */
@@ -46,7 +47,7 @@
 }
 
 .slidev-layout {
-  color: var(--viadee-ink);
+  color: var(--viadee-body);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -80,4 +81,14 @@
 
 .text-content + .bulleted-list {
   margin-top: 0.5rem;
+}
+
+/* Readable line length for running text and callouts (~75 characters). */
+.measure {
+  max-width: 42rem;
+}
+
+/* More space above a section than below its title (stacked blocks only, not columns). */
+:not(.columns) > * + :has(> .section-title:first-child) {
+  margin-top: 0.75rem;
 }

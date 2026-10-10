@@ -23,7 +23,7 @@ defineProps({
 .bulleted-list :deep(li) {
   position: relative;
   padding-left: 1.25rem;
-  color: #262626;
+  color: var(--viadee-body);
   line-height: 1.42;
   font-size: 1rem;
   font-weight: 400;
@@ -49,7 +49,7 @@ defineProps({
 .bulleted-list :deep(li > ul > li) {
   padding-left: 1.25rem;
   font-size: 0.94rem;
-  color: #333;
+  color: var(--viadee-body);
   font-weight: 400;
 }
 
@@ -62,7 +62,7 @@ defineProps({
 .bulleted-list :deep(li > ul > li > ul > li) {
   padding-left: 1.25rem;
   font-size: 0.88rem;
-  color: #666;
+  color: var(--viadee-muted);
 }
 
 .bulleted-list :deep(li > ul > li > ul > li)::before {
@@ -80,7 +80,7 @@ defineProps({
 .bulleted-list :deep(.subtext) {
   display: block;
   width: 100%;
-  color: #6b7280;
+  color: var(--viadee-muted);
   font-size: 0.85rem;
   line-height: 1.3;
 }

@@ -9,10 +9,10 @@ defineProps({
 
 <template>
   <div class="bg-viadee-surface border-l-3 border-viadee-coral py-2.5 px-4 relative">
-    <p class="text-gray-700 text-base leading-normal m-0 pr-24">
+    <p class="text-viadee-body pr-24 text-base leading-normal m-0">
       <slot />
     </p>
-    <span v-if="source" class="absolute bottom-3 right-4 text-gray-500 text-xs">
+    <span v-if="source" class="absolute bottom-3 right-4 text-viadee-muted text-xs">
       {{ source }}
     </span>
   </div>

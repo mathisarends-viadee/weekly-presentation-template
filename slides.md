@@ -1,6 +1,7 @@
 ---
 theme: default
 highlighter: shiki
+codeCopy: false
 favicon: /images/favicon.svg
 colorSchema: light
 title: viadee Tech Talk

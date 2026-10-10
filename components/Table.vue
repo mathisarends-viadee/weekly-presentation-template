@@ -42,7 +42,7 @@ const getColumnWidth = (index, header) => {
 <template>
   <SectionTitle v-if="title" :text="title" mb="2" />
 
-  <table class="w-full border-collapse text-[0.88rem] leading-[1.38] text-gray-800">
+  <table class="w-full border-collapse text-[0.88rem] leading-[1.38] text-viadee-body">
     <colgroup>
       <col
         v-for="(header, index) in headers"
@@ -70,7 +70,7 @@ const getColumnWidth = (index, header) => {
         <td
           v-for="(cell, cellIndex) in row"
           :key="cellIndex"
-          class="border-r border-gray-300 px-2.5 py-2 align-top text-gray-700 last:border-r-0"
+          class="border-r border-gray-300 px-2.5 py-2 align-top text-viadee-body last:border-r-0"
           v-html="cell"
         ></td>
       </tr>
@@ -79,7 +79,7 @@ const getColumnWidth = (index, header) => {
 
   <p
     v-if="caption"
-    class="-mt-1 px-2.5 text-left text-[0.74rem] leading-tight text-gray-500"
+    class="-mt-1 px-2.5 text-left text-[0.74rem] leading-tight text-viadee-muted"
     v-html="caption"
   ></p>
 </template>

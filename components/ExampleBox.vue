@@ -12,11 +12,11 @@ defineProps({
 </script>
 
 <template>
-  <div class="bg-viadee-surface px-4 py-2.5">
-    <div class="mb-0.5 text-[1rem] font-bold text-viadee-ink">
+  <div class="bg-viadee-surface rounded-[var(--slidev-code-radius)] px-4 py-3">
+    <div class="mb-0.5 text-[0.85rem] font-semibold text-viadee-muted">
       {{ title }}
     </div>
-    <p class="m-0 text-[0.96rem] leading-[1.48] text-viadee-ink">
+    <p class="m-0 text-[0.96rem] leading-[1.48] text-viadee-body">
       <slot />
     </p>
 

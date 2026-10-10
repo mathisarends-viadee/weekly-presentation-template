@@ -8,6 +8,7 @@ const brand = Object.fromEntries(
     'highlight',
     'violet',
     'ink',
+    'body',
     'slate',
     'muted',
     'gray',

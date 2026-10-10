@@ -23,11 +23,7 @@ const props = defineProps({
 })
 
 const chapterTitle = computed(() => {
-  if (!props.chapter || !info.chapters) {
-    return ''
-  }
-  const chapterNum = parseInt(props.chapter)
-  const chapter = info.chapters.find(ch => ch.number === chapterNum)
+  const chapter = info.chapters?.find(ch => ch.number === parseInt(props.chapter))
   return chapter?.title || ''
 })
 
@@ -35,8 +31,14 @@ const deckTitle = computed(() => info.shortTitle || info.title)
 </script>
 
 <template>
-  <footer class="footer flex justify-between items-baseline pt-3">
-    <span class="truncate">{{ chapterTitle || deckTitle }}</span>
+  <footer class="footer flex justify-between items-center pt-3">
+    <div class="flex items-center min-w-0">
+      <span class="text-viadee-body">{{ deckTitle }}</span>
+      <template v-if="chapterTitle">
+        <span class="mx-2.5 h-2.5 w-px bg-viadee-gray" aria-hidden="true" />
+        <span class="truncate">{{ chapterTitle }}</span>
+      </template>
+    </div>
     <span class="page tabular-nums">{{ currentPage - 1 }}</span>
   </footer>
 </template>

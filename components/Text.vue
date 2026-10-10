@@ -13,7 +13,7 @@ defineProps({
   <div class="text-content">
     <SectionTitle v-if="title" :text="title" />
 
-    <div class="text-[1rem] leading-[1.5] text-viadee-ink">
+    <div class="measure text-[1rem] leading-[1.5] text-viadee-body">
       <slot />
     </div>
   </div>

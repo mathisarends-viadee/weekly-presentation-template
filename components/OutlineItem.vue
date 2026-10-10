@@ -30,7 +30,7 @@ defineProps({
       class="text-lg font-medium"
       :class="{
         'text-viadee-ink': active,
-        'text-viadee-slate': !active
+        'text-gray-500': !active
       }"
     >
       <slot />
