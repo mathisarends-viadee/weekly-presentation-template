@@ -20,18 +20,16 @@ const info = $slidev.configs?.presentationInfo || {
       <div class="flex-1 flex flex-col justify-center -mt-4">
         <p
           v-if="info.event || info.semester"
-          class="text-viadee-muted text-[0.8rem] font-semibold tracking-[0.08em] uppercase mb-4"
+          class="text-viadee-coral-strong text-sm font-semibold tracking-[0.28em] uppercase mb-3"
         >
           {{ [info.event || info.semester, info.date].filter(Boolean).join(' · ') }}
         </p>
 
-        <h1 class="text-[4rem] leading-[1.02] font-bold text-viadee-ink tracking-[-0.025em] mb-4">
+        <h1 class="text-[5.5rem] leading-[0.95] font-bold text-viadee-ink tracking-tight mb-6">
           {{ info.title }}
         </h1>
 
-        <h2
-          class="text-[1.6rem] font-normal text-viadee-slate leading-snug tracking-[-0.01em] max-w-xl"
-        >
+        <h2 class="text-3xl font-normal text-viadee-slate leading-snug max-w-xl">
           {{ info.subtitle }}
         </h2>
       </div>

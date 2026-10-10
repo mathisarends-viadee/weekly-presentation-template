@@ -13,7 +13,7 @@ defineProps({
 
 <template>
   <div class="bg-viadee-surface border-l-3 border-viadee-coral px-4 py-2.5">
-    <div class="mb-1 text-[0.72rem] font-semibold uppercase tracking-[0.06em] text-viadee-slate">
+    <div class="mb-0.5 text-[1rem] font-bold text-viadee-ink">
       {{ title }}
     </div>
     <p class="m-0 text-[0.96rem] leading-[1.48] text-viadee-ink">

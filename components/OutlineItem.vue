@@ -29,9 +29,8 @@ defineProps({
     <span
       class="text-lg font-medium"
       :class="{
-        'text-viadee-ink font-semibold': active,
-        'text-gray-400': disabled,
-        'text-viadee-slate': !active && !disabled
+        'text-viadee-ink': active,
+        'text-viadee-slate': !active
       }"
     >
       <slot />

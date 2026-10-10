@@ -32,6 +32,14 @@ defineProps({
         stroke-opacity="0.38"
         stroke-width="1"
       />
+      <circle
+        cx="95"
+        cy="700"
+        r="175"
+        stroke="var(--viadee-ink)"
+        stroke-opacity="0.06"
+        stroke-width="1"
+      />
     </template>
     <template v-else>
       <circle
