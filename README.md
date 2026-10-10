@@ -52,5 +52,3 @@ Die Basis stammt aus Commit `57af20ea67e73b6d0092043abb8560305be2e88a` des FH-St
 Das viadee-Logo stammt aus dem Header der [viadee-Website](https://www.viadee.de/). Die Vorlage ist eine Anpassung, kein offiziell freigegebenes Corporate-Design-Template. Das Ausgangsrepository enthielt keine separate Lizenzdatei.
 
 `magic-string` 1.x ist auf Version 1.4.2 begrenzt, um den [aktuellen UnoCSS-Buildfehler](https://github.com/unocss/unocss/issues/5373) zu umgehen. Die von Vue benötigte 0.30.x-Reihe bleibt davon unberührt. `npm audit` meldet weiterhin Probleme in transitiven Slidev-Abhängigkeiten. Ein erzwungenes Downgrade wurde nicht durchgeführt.
-
-Die übernommenen Claude-Anleitungen in `.claude/skills/` stammen noch aus der FH-Vorlage. Für verfügbare Komponenten und Props gelten die Vue-Dateien als maßgebliche Quelle.
