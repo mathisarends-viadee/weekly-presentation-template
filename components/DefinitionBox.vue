@@ -15,7 +15,7 @@ defineProps({
   <div class="relative">
     <!-- Title Badge -->
     <div
-      class="inline-block bg-viadee-ink px-4 py-0.75 text-[0.84rem] font-semibold tracking-[0.01em] text-white"
+      class="inline-block bg-viadee-coral-strong px-4 py-0.75 text-[0.84rem] font-semibold tracking-[0.01em] text-white"
     >
       {{ title }}
     </div>

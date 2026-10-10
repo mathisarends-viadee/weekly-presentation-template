@@ -36,7 +36,7 @@ defineProps({
   position: absolute;
   left: 0.2rem;
   top: 0.4rem;
-  color: var(--viadee-ink);
+  color: var(--viadee-coral);
   font-size: 0.35em;
 }
 
@@ -56,7 +56,7 @@ defineProps({
 .bulleted-list :deep(li > ul > li)::before {
   content: '■';
   font-size: 0.3em;
-  color: var(--viadee-ink);
+  color: var(--viadee-coral);
 }
 
 .bulleted-list :deep(li > ul > li > ul > li) {

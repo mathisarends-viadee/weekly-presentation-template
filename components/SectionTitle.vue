@@ -15,6 +15,6 @@ defineProps({
 
 <style scoped>
 .section-title {
-  color: var(--viadee-ink);
+  color: var(--viadee-coral-strong);
 }
 </style>

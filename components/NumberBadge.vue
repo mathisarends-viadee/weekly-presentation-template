@@ -12,6 +12,12 @@ defineProps({
     type: Boolean,
     default: false
   },
+  // 'neutral' marks visited chapters in the outline.
+  tone: {
+    type: String,
+    default: 'brand',
+    validator: value => ['brand', 'neutral'].includes(value)
+  },
   size: {
     type: String,
     default: 'md',
@@ -25,9 +31,9 @@ defineProps({
     class="grid place-items-center rounded-full font-semibold flex-shrink-0 tabular-nums"
     :class="[
       {
-        'bg-viadee-coral text-viadee-ink': active,
-        'bg-gray-400 text-white': disabled,
-        'bg-viadee-ink text-white': !active && !disabled
+        'bg-viadee-coral-strong text-white': active || (!disabled && tone === 'brand'),
+        'bg-viadee-slate text-white': !active && !disabled && tone === 'neutral',
+        'bg-viadee-gray text-white': disabled && !active
       },
       size === 'sm' ? 'w-4 h-4 text-[11px] leading-4' : 'w-5.5 h-5.5 text-sm leading-5.5'
     ]"

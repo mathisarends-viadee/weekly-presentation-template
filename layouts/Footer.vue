@@ -31,34 +31,32 @@ const chapterTitle = computed(() => {
   return chapter?.title || ''
 })
 
-const footerText = computed(() => {
-  return [info.shortTitle || info.title, chapterTitle.value].filter(Boolean).join(' · ')
-})
+const deckTitle = computed(() => info.shortTitle || info.title)
 </script>
 
 <template>
-  <div
-    class="footer-container relative flex justify-between items-center py-1 pl-5.5 pr-7 -mx-8 -mb-4 mt-2"
-  >
-    <div class="bg-white px-3 py-0.5 text-viadee-slate text-[11px] relative z-10">
-      {{ footerText }}
+  <footer class="footer flex justify-between items-baseline pt-3">
+    <div class="truncate">
+      <span class="text-viadee-slate font-semibold">{{ deckTitle }}</span>
+      <template v-if="chapterTitle">
+        <span class="mx-1.5 text-viadee-gray">/</span>
+        <span>{{ chapterTitle }}</span>
+      </template>
     </div>
-    <span class="bg-white px-3 py-0.5 text-viadee-slate text-[11.5px] relative z-10">
-      {{ currentPage - 1 }}
-    </span>
-  </div>
+    <span class="page tabular-nums">{{ currentPage - 1 }}</span>
+  </footer>
 </template>
 
 <style scoped>
-.footer-container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/footer-background.png');
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  background-position: center;
-  filter: grayscale(1) opacity(0.15) blur(1.5px);
-  z-index: 0;
+.footer {
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--viadee-muted);
+}
+
+.page {
+  font-family: var(--font-mono);
+  color: var(--viadee-slate);
 }
 </style>

@@ -4,19 +4,24 @@ Die Vorlage folgt den Komponenten und Layouts des [FH Münster Slidev Starters](
 
 ## Farben
 
-- Weiß als Folienhintergrund.
-- Schwarz (`#202020`) für Titel, Fließtext und Hervorhebungen.
-- Neutrale Grautöne für Untertitel, Quellen und sekundäre Informationen.
-- viadee-Koralle (`#ff5546`) für Logo, Trennlinien und aktive Kapitelnummern.
-- Dezente graue Flächen für Definitionen, Beispiele, Tabellen und Code.
+Die Gestaltung der FH-Vorlage bleibt erhalten. Nur die Farbrollen sind auf viadee übertragen:
 
-Die Farbwerte stehen zentral in `style.css`. `uno.config.ts` stellt dazu `viadee-*`-Utilities bereit. Die bisherigen `fh-*`-Klassen bleiben als kompatible Aliase verfügbar, verwenden aber die neue Gestaltung. `HighlightedText` betont Text über die Schriftstärke.
+| Rolle in der FH-Vorlage | viadee |
+| --- | --- |
+| Dunkelblau für Titel | Schwarz `#202020` |
+| Blau für Abschnittstitel, Nummern und Boxen | Koralle für Text `#d63a2c` (Kontrast 4,7:1) |
+| Orange für Trennlinie, Aufzählungszeichen und Akzente | viadee-Koralle `#ff5546` |
+| Graublau für Nebentexte | neutrale Grautöne |
 
-Das ursprüngliche Footer-Muster bleibt erhalten. Die Kreisformen auf Titel- und Abschlussfolien sowie Abstände, Listenformen und Boxen stammen aus der FH-Vorlage.
+Hervorhebungen im Fließtext (`HighlightedText`) sind halbfett in Schwarz und nicht farbig. So steht auf einer Folie nicht zu viel Rot.
+
+Die Farbwerte stehen zentral in `style.css`. `uno.config.ts` stellt dazu `viadee-*`-Utilities bereit und ersetzt die blaustichige Tailwind-Grauskala durch eine neutrale. Die bisherigen `fh-*`-Klassen bleiben als Aliase verfügbar.
 
 ## Schrift
 
-Die Vorlage behält Nunito Sans und Fira Code für Code bei. Beide Schriften werden lokal über Fontsource ausgeliefert, damit ein Vortrag nach Installation und Build keine Google-Fonts-Verbindung benötigt. Die kommerzielle viadee-Hausschrift wird nicht mitgeliefert.
+Nunito Sans für Text und Fira Code für Code, wie in der FH-Vorlage. Beide Schriften werden lokal über Fontsource ausgeliefert, damit ein Vortrag ohne Google-Fonts-Verbindung funktioniert. Die kommerzielle viadee-Hausschrift wird nicht mitgeliefert.
+
+Die FH-Vorlage hat Nunito Sans nur in den Stärken 400, 600 und 700 geladen. `font-black` wurde dort deshalb als 700 dargestellt. Die Variable-Font enthält auch 900. Darum verwenden die Layouts `font-bold`, damit Titel nicht schwarz und klobig wirken.
 
 ## Logo und Herkunft
 

@@ -6,7 +6,7 @@ defineProps({
   },
   weight: {
     type: String,
-    default: '700'
+    default: '600'
   }
 })
 </script>

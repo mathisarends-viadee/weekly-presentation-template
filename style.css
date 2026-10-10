@@ -2,23 +2,42 @@
 @import '@fontsource/fira-code/400.css';
 
 :root {
-  /* viadee website palette, with neutral typography for technical presentations. */
+  /* Brand. Coral is a graphic color (logo, rules, markers): on white it only reaches 3.2:1.
+     Text in brand color uses coral-strong (4.7:1, WCAG AA). */
   --viadee-coral: #ff5546;
-  --viadee-highlight: #202020;
+  --viadee-coral-strong: #d63a2c;
   --viadee-violet: #652965;
-  --viadee-ink: #202020;
-  --viadee-slate: #525252;
-  --viadee-muted: #737373;
-  --viadee-gray: #737373;
-  --viadee-line: #e5e5e5;
-  --viadee-surface: #f5f5f5;
+
+  /* Neutrals. */
+  --viadee-ink: #202020; /* titles, body text */
+  --viadee-slate: #525252; /* subtitles, secondary text */
+  --viadee-muted: #6b6b6b; /* subtext, captions, meta */
+  --viadee-gray: #a3a3a3; /* disabled states, minor markers */
+  --viadee-line: #e5e5e5; /* hairlines */
+  --viadee-surface: #f4f4f4; /* boxes */
+  --viadee-wash: #fafafa; /* code */
+  --viadee-highlight: var(--viadee-ink); /* inline emphasis: weight, not color */
+
+  /* Type */
+  --font-sans: 'Nunito Sans Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Fira Code', ui-monospace, Menlo, monospace;
+
   --slide-padding-x: 2.5rem;
+
   /* Compatibility for presentations based on the FH starter. */
   --fh-blue: var(--viadee-violet);
   --fh-dark-blue: var(--viadee-violet);
   --fh-navy: var(--viadee-ink);
   --fh-orange: var(--viadee-highlight);
   --fh-gray: var(--viadee-gray);
+
+  --slidev-code-background: var(--viadee-wash);
+  --slidev-code-foreground: var(--viadee-ink);
+  --slidev-code-font-family: var(--font-mono);
+  --slidev-code-font-size: 0.8rem;
+  --slidev-code-line-height: 1.55;
+  --slidev-code-padding: 0.75rem 1rem;
+  --slidev-code-radius: 0.375rem;
   color-scheme: light;
 }
 
@@ -26,27 +45,44 @@
   padding-inline: var(--slide-padding-x);
 }
 
-.slidev-code,
-.slidev-code pre,
-pre.shiki {
-  background: var(--viadee-surface) !important;
-  font-size: 0.8em !important;
-  border-radius: 7.5px !important;
-}
-
-.text-content + .bulleted-list {
-  margin-top: 0.45rem;
-}
-
 .slidev-layout {
   color: var(--viadee-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .slidev-layout a {
+  color: var(--viadee-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--viadee-coral);
+  text-underline-offset: 0.18em;
+}
+
+/* Inline code in running text. */
+.slidev-layout :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  padding: 0.08em 0.32em;
+  border-radius: 0.25rem;
+  background: var(--viadee-surface);
   color: var(--viadee-ink);
 }
 
 .slidev-code-wrapper {
   border: 1px solid var(--viadee-line);
-  border-radius: 7.5px;
+  border-radius: var(--slidev-code-radius);
+}
+
+.slidev-code .highlighted,
+.slidev-code .line {
+  transition: opacity 0.2s;
+}
+
+.slidev-code .dishonored {
+  opacity: 0.28 !important;
+}
+
+.text-content + .bulleted-list {
+  margin-top: 0.5rem;
 }

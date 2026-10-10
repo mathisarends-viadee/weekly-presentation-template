@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 190" width="1080" height="190" role="img" aria-labelledby="title desc">
+  <title id="title">Ablauf einer Bestellung</title>
+  <desc id="desc">Angenommen, gespeichert und verarbeitet. Pfeile verbinden die drei Zustände von links nach rechts.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="m0 0 8 4-8 4" fill="#ff5546"/></marker></defs>
+  <g fill="#faf9f7" stroke="#d6d3cf"><rect x="0" y="35" width="280" height="110" rx="8"/><rect x="400" y="35" width="280" height="110" rx="8"/><rect x="800" y="35" width="280" height="110" rx="8"/></g>
+  <g fill="#1f1e1d" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="500" text-anchor="middle"><text x="140" y="88">Angenommen</text><text x="540" y="88">Gespeichert</text><text x="940" y="88">Verarbeitet</text></g>
+  <g fill="#6f6b67" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="18" text-anchor="middle"><text x="140" y="119">Anfrage an die API</text><text x="540" y="119">Bestätigung an den Client</text><text x="940" y="119">Ergebnis verfügbar</text></g>
+  <g stroke="#ff5546" stroke-width="2" marker-end="url(#arrow)"><path d="M300 90h75"/><path d="M700 90h75"/></g>
+</svg>

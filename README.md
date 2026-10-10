@@ -1,114 +1,56 @@
-# FH Münster Slidev Starter
+# viadee Slidev Starter
 
-A professional slide deck starter for [FH Münster](https://www.fh-muenster.de/) presentations, built with [Slidev](https://sli.dev/). Features custom components in FH corporate design and opinionated style guides for consistent, high-quality academic presentations.
+Helle Vorlage für technische Präsentationen auf Basis des [FH Münster Slidev Starters](https://github.com/mathisarends/fh-muenster-slidev-starter). Die Komponenten und Layouts bleiben erhalten. Die Gestaltung verwendet schwarze Schrift, neutrale Grautöne und viadee-Koralle für Logo und Akzente. Der Footer zeigt nur Vortragstitel, Kapitel und Seitenzahl.
 
-## Features
+## Start
 
-- 🎨 **FH Corporate Design** - Pre-built components matching FH Münster branding
-- 📦 **Ready-to-use Components** - Rich component library for academic content
-- 📏 **Opinionated Style Guide** - Best practices for consistent presentations
-- 🚀 **Slidev Powered** - Fast, modern, developer-friendly presentation framework
-- 📝 **Markdown-based** - Write slides in Markdown with component syntax
-
-## Quick Start
+Voraussetzung: Node.js 22.12+, 24 oder 26+ innerhalb der in `package.json` angegebenen Versionen.
 
 ```bash
-npm install
-
+npm ci
 npm run dev
-
-# Visit http://localhost:3030
 ```
 
-Edit [slides.md](./slides.md) to create your presentation.
+Die Vorschau läuft unter `http://localhost:3030`. In `slides.md` stehen die Präsentationsmetadaten und ein Beispieldeck mit 16 Folien. Titel, Datum, Anlass, Autor:innen und Kapitel werden im ersten Frontmatter-Block angepasst.
 
-## Demo
-
-<table>
-  <tr>
-    <td><img src="public/demo/cover.png" alt="Cover Slide" width="300"/></td>
-    <td><img src="public/demo/definition.png" alt="Definition Box" width="300"/></td>
-  </tr>
-  <tr>
-    <td><img src="public/demo/comparison.png" alt="Comparison Columns" width="300"/></td>
-    <td><img src="public/demo/code.png" alt="Code Example" width="300"/></td>
-  </tr>
-  <tr>
-    <td><img src="public/demo/outline.png" alt="Chapter Outline" width="300"/></td>
-  </tr>
-</table>
-
-## Supported Components
-
-### Layout Components
-- **`<SlideLayout>`** - Main slide wrapper with header, footer, and footnotes
-- **`<Columns>`** - Two-column layout for comparisons
-- **`<Table>`** - Styled tables with custom headers and column widths
-
-### Content Components
-- **`<BulletedList>`** - Unordered lists with FH styling (supports nesting up to 3 levels)
-- **`<NumberedList>`** - Ordered lists with numbered badges
-- **`<Text>`** - Paragraph content with optional section title
-
-### Typography Components
-- **`<HighlightedText>`** - Emphasized text in FH orange
-- **`<SubText>`** - Secondary explanatory text in gray
-- **`<SectionTitle>`** - Consistent section headings
-
-### Box Components
-- **`<DefinitionBox>`** - Formal definitions with source attribution (left border, italic text)
-- **`<ExampleBox>`** - Practical examples and tips (full border, normal text)
-- **`<HighlightBox>`** - Important notes and warnings
-- **`<Quotebox>`** - Quotes and citations with source
-
-### Special Components
-- **`<Footnote>`** - Inline footnote references (auto-numbered, collected at bottom)
-- **`<ChapterOutline>`** - Visual chapter navigation
-- **`<OutlineItem>`** - Individual outline entries
-
-### Utility Components
-- **`<Divider>`** - Horizontal separators with customizable length and color
-- **`<Image>`** - Responsive images with captions
-- **`<NumberBadge>`** - Styled number badges for lists
-
-## Layouts
-
-- **`cover`** - Title slide with FH branding
-- **`chapter-intro`** - Chapter introduction with large number
-- **`default`** - Standard content slide with title and subtitle
-- **`closing`** - Final slide with thank you message
-
-## Style Guide
-
-The project includes comprehensive style guides in `.github/instructions/`:
-- Component usage patterns
-- Content organization best practices
-- Typography guidelines
-- Code formatting rules
-- Mermaid & PlantUML diagram support
-
-All slides must include proper frontmatter with chapter information for automatic footer generation.
-
-## Project Structure
-
-```
-slidev/
-├── slides.md              # Main presentation file
-├── components/            # Custom Vue components
-├── layouts/               # Slide layouts
-├── composables/           # Vue composables
-├── public/                # Static assets
-│   └── images/           # Presentation images
-└── setup/                 # Slidev configuration
+```bash
+npm run lint
+npm run build
 ```
 
-## Resources
+Der Build liegt in `dist/`. Schriften und Markenassets werden lokal ausgeliefert.
 
-- [Slidev Documentation](https://sli.dev/)
-- [FH Münster Corporate Design](https://www.fh-muenster.de/)
-- [Style Guide](.github/instructions/style-guide.instructions.md)
+## Komponenten und Layouts
 
-## License
+| Inhalt | Komponenten |
+| --- | --- |
+| Struktur | `SlideLayout`, `Columns`, `Divider` |
+| Text | `Text`, `SectionTitle`, `HighlightedText`, `SubText` |
+| Listen | `BulletedList`, `NumberedList`, `NumberBadge` |
+| Boxen | `DefinitionBox`, `ExampleBox`, `Quotebox` |
+| Tabellen und Bilder | `Table`, `Image` |
+| Kapitel und Quellen | `ChapterOutline`, `Outline`, `OutlineItem`, `Footnote` |
+| Entwürfe | `Todo` |
 
-Created for FH Münster academic presentations.
+Die Layouts heißen weiterhin `cover`, `chapter-intro`, `default` und `closing`. Jede Inhaltsfolie erhält `title`, `subtitle` und `chapter`. Kapitelnummern verweisen auf `presentationInfo.chapters`. Code wird als nativer Markdown-Codeblock geschrieben. Mermaid-Diagramme folgen der neutralen Gestaltung.
 
+`HighlightedText` verwendet fette schwarze Schrift. Die bisherigen `fh-*`-Utilities bleiben als Farbaliase verfügbar. Die Farben werden zentral in `style.css` definiert. Details zu Herkunft und Gestaltung stehen in [docs/branding.md](docs/branding.md).
+
+## Export
+
+```bash
+npx playwright install chromium
+npx slidev export --output /tmp/viadee-template.pdf
+```
+
+Die Playwright-Abhängigkeit für den Export ist enthalten. Weitere Optionen beschreibt die [Slidev-Dokumentation](https://sli.dev/guide/exporting).
+
+## Hinweise zur Übernahme
+
+Die Basis stammt aus Commit `57af20ea67e73b6d0092043abb8560305be2e88a` des FH-Starters. Der erste lokale Commit enthält die unveränderte Vorlage.
+
+Das viadee-Logo stammt aus dem Header der [viadee-Website](https://www.viadee.de/). Die Vorlage ist eine Anpassung, kein offiziell freigegebenes Corporate-Design-Template. Das Ausgangsrepository enthielt keine separate Lizenzdatei.
+
+`magic-string` 1.x ist auf Version 1.4.2 begrenzt, um den [aktuellen UnoCSS-Buildfehler](https://github.com/unocss/unocss/issues/5373) zu umgehen. Die von Vue benötigte 0.30.x-Reihe bleibt davon unberührt. `npm audit` meldet weiterhin Probleme in transitiven Slidev-Abhängigkeiten. Ein erzwungenes Downgrade wurde nicht durchgeführt.
+
+Die übernommenen Claude-Anleitungen in `.claude/skills/` stammen noch aus der FH-Vorlage. Für verfügbare Komponenten und Props gelten die Vue-Dateien als maßgebliche Quelle.

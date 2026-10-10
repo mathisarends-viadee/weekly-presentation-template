@@ -13,7 +13,7 @@ defineProps({
 
 <template>
   <div class="footnote-item flex gap-1.5 items-start">
-    <span class="text-viadee-ink text-[9px] leading-tight">{{ number }}</span>
+    <span class="text-viadee-coral-strong text-[9px] leading-tight">{{ number }}</span>
     <span class="text-gray-600 text-[9px] leading-tight flex-1">
       <slot>{{ text }}</slot>
     </span>

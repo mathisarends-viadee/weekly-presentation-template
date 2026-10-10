@@ -3,38 +3,36 @@ theme: default
 highlighter: shiki
 favicon: /images/favicon.svg
 colorSchema: light
-title: MongoDB
+title: viadee Tech Talk
 fonts:
   sans: 'Nunito Sans Variable'
   serif: 'Nunito Sans Variable'
   mono: 'Fira Code'
   provider: none
-  weights: '400,600,700,900'
 presentationInfo:
-  title: 'MongoDB'
-  subtitle: 'NoSQL-Datenbanken für moderne Anwendungen'
-  event: 'viadee Tech Talk'
+  title: 'Tech Talk'
+  subtitle: 'Architektur, Code und Entscheidungen'
+  shortTitle: 'Tech Talk'
+  event: 'viadee Wissensaustausch'
+  date: 'TT.MM.JJJJ'
   authors:
-    - name: 'Max Mustermann'
+    - name: 'Vorname Nachname'
       role: 'Software Engineering'
-      email: 'max.mustermann@example.com'
-    - name: 'Anna Schmidt'
-      role: 'Software Architecture'
-      email: 'anna.schmidt@example.com'
+      email: 'vorname.nachname@example.com'
   chapters:
     - number: 1
-      title: 'Einführung in MongoDB'
+      title: 'Kontext und Begriffe'
     - number: 2
-      title: 'Datenmodellierung'
+      title: 'Architektur und Entscheidungen'
     - number: 3
-      title: 'CRUD-Operationen'
-    - number: 4
-      title: 'Indexierung und Performance'
-    - number: 5
-      title: 'Aggregation Framework'
-
----
+      title: 'Implementierung und Betrieb'
 layout: cover
+---
+
+<!--
+Diese Präsentation zeigt die Komponenten der Vorlage an einem vereinfachten technischen Beispiel.
+Titel, Anlass, Datum und Autor:innen stehen im ersten Frontmatter-Block.
+-->
 
 ---
 layout: chapter-intro
@@ -42,241 +40,255 @@ chapter: 1
 ---
 
 ---
-title: Einführung in MongoDB
-subtitle: Was ist MongoDB?
+title: Kontext und Begriffe
+subtitle: Eine technische Entscheidung erklären
 chapter: 1
 ---
 
-<DefinitionBox title="MongoDB" source="MongoDB Documentation 2024">
-  MongoDB ist eine dokumentenorientierte NoSQL-Datenbank, die Daten in flexiblen, JSON-ähnlichen Dokumenten speichert. Sie ermöglicht eine skalierbare, leistungsstarke und entwicklerfreundliche Datenverwaltung für moderne Anwendungen.
+<DefinitionBox title="Technische Entscheidung">
+  Eine technische Entscheidung beschreibt, welche Lösung ein Team für ein konkretes Problem wählt und welche Konsequenzen daraus entstehen.
 </DefinitionBox>
 
-<Text title="Kernmerkmale">
-  MongoDB speichert Daten als <HighlightedText>BSON-Dokumente</HighlightedText> (Binary JSON) in Collections statt in traditionellen Tabellen.
-  <SubText>Diese flexible Struktur ermöglicht es, Schema-Änderungen ohne komplexe Migrationen durchzuführen</SubText>
+<Text title="Ausgangspunkt">
+  Ein hilfreicher Vortrag beginnt mit dem <HighlightedText>Problem und seinen Randbedingungen</HighlightedText>.
+  <SubText>Das Beispieldeck betrachtet einen Dienst, der Bestellungen annimmt und verarbeitet.</SubText>
 </Text>
 
 ---
-title: Einführung in MongoDB
-subtitle: Die MongoDB-Geschichte
+title: Kontext und Begriffe
+subtitle: Vom Problem zur überprüfbaren Aussage
 chapter: 1
 ---
 
-<NumberedList title="Entwicklungsmeilensteine">
+<NumberedList title="Aufbau des Vortrags">
   <li>
-    <span><HighlightedText>2007 - Gründung</HighlightedText> - 10gen entwickelt MongoDB für eigene Cloud-Plattform</span>
-    <SubText>Ursprünglich als Teil einer Platform-as-a-Service-Lösung konzipiert</SubText>
+    <span><HighlightedText>Ausgangslage</HighlightedText> beschreiben</span>
+    <SubText>Welche Aufgabe soll der Dienst erfüllen? Welche Grenzen gelten?</SubText>
   </li>
   <li>
-    <span><HighlightedText>2009 - Open Source</HighlightedText> - Veröffentlichung als eigenständige Datenbank</span>
-    <SubText>MongoDB wird unter der AGPL-Lizenz für die Community verfügbar gemacht</SubText>
+    <span><HighlightedText>Alternativen</HighlightedText> vergleichen</span>
+    <SubText>Wie unterscheiden sich die Lösungen im Alltag des Teams?</SubText>
   </li>
   <li>
-    <span><HighlightedText>2013 - MongoDB Inc.</HighlightedText> - Umbenennung und Enterprise-Fokus</span>
-    <SubText>Etablierung als führende NoSQL-Datenbank für Unternehmen</SubText>
+    <span><HighlightedText>Implementierung</HighlightedText> zeigen</span>
+    <SubText>Ein kurzer Codeausschnitt macht das Verhalten nachvollziehbar.</SubText>
   </li>
   <li>
-    <span><HighlightedText>2017 - IPO</HighlightedText> - Börsengang an der NASDAQ</span>
-    <SubText>MongoDB Atlas als vollständig verwaltete Cloud-Lösung wird zum Hauptprodukt</SubText>
+    <span><HighlightedText>Ergebnis</HighlightedText> überprüfen</span>
+    <SubText>Tests und Beobachtungen zeigen, ob die Lösung das Problem löst.</SubText>
   </li>
 </NumberedList>
 
 ---
-title: Einführung in MongoDB
-subtitle: MongoDB vs. Relationale Datenbanken
-chapter: 1
+layout: chapter-intro
+chapter: 2
+---
+
+---
+title: Architektur und Entscheidungen
+subtitle: Synchrone und asynchrone Verarbeitung
+chapter: 2
 ---
 
 <Columns>
 
-<BulletedList title="Relationale Datenbanken">
-  <li>Strukturierte Daten
+<BulletedList title="Synchron">
+  <li>Der Client wartet auf das Ergebnis
     <ul>
-      <li>Festes Schema erforderlich</li>
-      <li>Normalisierung notwendig</li>
-      <li>Tabellen mit Fremdschlüsseln</li>
+      <li>Erfolg oder Fehler in derselben Antwort</li>
+      <li>Direkter Ablauf für kurze Operationen</li>
     </ul>
   </li>
-  <li>Skalierung
-    <ul>
-      <li>Primär vertikale Skalierung</li>
-      <li>ACID-Transaktionen garantiert</li>
-      <li>Komplexe Joins für Relationen</li>
-    </ul>
+  <li>Abhängigkeiten liegen im Anfragepfad
+    <SubText>Ein langsamer Folgedienst verlängert die Antwortzeit.</SubText>
   </li>
 </BulletedList>
 
-<BulletedList title="MongoDB">
-  <li>Flexible Dokumente
+<BulletedList title="Asynchron">
+  <li>Der Dienst bestätigt zunächst die Annahme
     <ul>
-      <li>Dynamisches Schema</li>
-      <li>Eingebettete Dokumente</li>
-      <li>Collections ohne Constraints</li>
+      <li>Ein Worker verarbeitet den Auftrag später</li>
+      <li>Der Client fragt den Status separat ab</li>
     </ul>
   </li>
-  <li>Skalierung
-    <ul>
-      <li>Horizontale Skalierung (Sharding)</li>
-      <li>ACID auf Dokumentebene<Footnote text="Ab Version 4.0 auch Multi-Document Transactions" /></li>
-      <li>Embedded Documents statt Joins</li>
-    </ul>
+  <li>Die Verarbeitung braucht einen Status<Footnote text="Vereinfachtes Beispiel. Die passende Lösung hängt unter anderem von Fehlerbehandlung, Last und fachlichen Anforderungen ab." />
+    <SubText>Wiederholungen und Fehlerfälle gehören zum Entwurf.</SubText>
   </li>
 </BulletedList>
 
 </Columns>
 
 ---
-layout: chapter-intro
+title: Architektur und Entscheidungen
+subtitle: Der Anfragepfad im Überblick
 chapter: 2
 ---
 
+```mermaid
+flowchart LR
+  client[Client] -->|POST /orders| api[Order API]
+  api -->|speichern| db[(Datenbank)]
+  api -->|202 Accepted| client
+  worker[Worker] <-->|Aufträge und Status| db
+```
+
+<Text title="Verantwortung des Dienstes">
+  Die API bestätigt die <HighlightedText>gespeicherte Bestellung</HighlightedText>. Der Worker übernimmt anschließend die Verarbeitung.
+  <SubText>Das Diagramm ist ein vereinfachtes Beispiel für eine Architekturfolie.</SubText>
+</Text>
+
 ---
-title: Datenmodellierung
-subtitle: Embedded Documents vs. Referenzen
+title: Architektur und Entscheidungen
+subtitle: Entscheidungskriterien gegenüberstellen
 chapter: 2
 ---
 
-<Columns>
-
-<div>
-
-<Text title="Embedded Documents">
-  Daten werden <HighlightedText>direkt im Dokument</HighlightedText> gespeichert.
-  <SubText>Bessere Read-Performance durch Datenlokalität</SubText>
-</Text>
-
-<BulletedList title="Vorteile">
-  <li>Ein Query für alle Daten</li>
-  <li>Atomare Operationen</li>
-  <li>Optimale Read-Performance</li>
-</BulletedList>
-
-</div>
-
-<div>
-
-<Text title="Referenzen">
-  Daten werden in <HighlightedText>separaten Collections</HighlightedText> gespeichert.
-  <SubText>Flexible Updates und vermeidet Duplikation</SubText>
-</Text>
-
-<BulletedList title="Vorteile">
-  <li>Kleinere Dokumente</li>
-  <li>Weniger Daten-Duplikation</li>
-  <li>Vermeidung des 16MB Limits</li>
-</BulletedList>
-
-</div>
-
-</Columns>
-
----
-layout: chapter-intro
-chapter: 3
----
-
----
-title: CRUD-Operationen
-subtitle: Update Operatoren
-chapter: 3
----
-
-<Table 
-  :headers="['Operator', 'Beschreibung', 'Beispiel']"
-  :columnWidths="['20%', '40%', '40%']"
+<Table
+  :headers="['Kriterium', 'Synchron', 'Asynchron']"
+  :columnWidths="['25%', '37.5%', '37.5%']"
   :rows="[
-    ['<code>$set</code>', 'Setzt Feldwerte oder fügt neue Felder hinzu', '<code>{ $set: { age: 30 } }</code>'],
-    ['<code>$inc</code>', 'Inkrementiert numerische Werte', '<code>{ $inc: { views: 1 } }</code>'],
-    ['<code>$push</code>', 'Fügt Element zu Array hinzu', '<code>{ $push: { tags: &quot;new&quot; } }</code>'],
-    ['<code>$pull</code>', 'Entfernt Element aus Array', '<code>{ $pull: { tags: &quot;old&quot; } }</code>'],
-    ['<code>$unset</code>', 'Entfernt Feld aus Dokument', '<code>{ $unset: { tempField: &quot;&quot; } }</code>']
+    ['Antwort an den Client', 'Ergebnis der Verarbeitung', 'Bestätigung der Annahme'],
+    ['Statusmodell', 'Ergebnis direkt verfügbar', 'Status separat abrufbar'],
+    ['Fehlerbehandlung', 'Fehler in der Antwort', 'Fehlerstatus und Wiederholung'],
+    ['Betrieb', 'Anfragepfad beobachten', 'Zusätzlich Rückstau beobachten']
   ]"
-  caption="Wichtige Update-Operatoren in MongoDB"
+  caption="Beispielhafter Vergleich für die Bestellverarbeitung"
 />
 
+<SubText>Welche Kriterien sind für euren Anwendungsfall entscheidend?</SubText>
+
 ---
 layout: chapter-intro
-chapter: 4
+chapter: 3
 ---
 
 ---
-title: Indexierung und Performance
-subtitle: Index erstellen und verwalten
-chapter: 4
+title: Implementierung und Betrieb
+subtitle: Eine Bestellung annehmen
+chapter: 3
 ---
 
-```javascript
-// Single Field Index
-db.users.createIndex({ email: 1 });
+```ts
+interface Order {
+  id: string
+  status: 'pending' | 'completed'
+}
 
-// Compound Index
-db.orders.createIndex({ customerId: 1, orderDate: -1 });
+type SaveOrder = (order: Order) => Promise<void>
 
-// Index im Hintergrund (empfohlen für Production)
-db.users.createIndex({ email: 1 }, { background: true });
-
-// Unique Index
-db.users.createIndex({ username: 1 }, { unique: true });
-
-// Text Index
-db.articles.createIndex({ title: "text", content: "text" });
-
-// Alle Indexes anzeigen
-db.users.getIndexes();
+export async function acceptOrder(id: string, save: SaveOrder) {
+  const order: Order = { id, status: 'pending' }
+  await save(order)
+  return { status: 202, body: { id: order.id } }
+}
 ```
 
-<ExampleBox title="Wann Partial Indexes verwenden?">
-  Partial Indexes sind ideal für große Collections, bei denen nur ein Teil der Dokumente häufig abgefragt wird. Sie sparen Speicherplatz und verbessern die Performance.
+<ExampleBox title="Verhalten im Fehlerfall">
+  Die Bestätigung folgt erst nach erfolgreichem Speichern. Schlägt <code>save</code> fehl, liefert die Funktion keinen Erfolg zurück.
 </ExampleBox>
 
----
-layout: chapter-intro
-chapter: 5
----
+<!--
+Die Funktion zeigt die Reihenfolge im Anwendungskern. HTTP-Mapping, Validierung und Idempotenz gehören in den konkreten Dienst.
+-->
 
 ---
-title: Aggregation Framework
-subtitle: Leistungsstarke Datenverarbeitung
-chapter: 5
+title: Implementierung und Betrieb
+subtitle: Code schrittweise besprechen
+chapter: 3
 ---
 
-<DefinitionBox title="Aggregation Pipeline" source="MongoDB Manual, Aggregation">
-  Die Aggregation Pipeline ist ein Framework zur Datenverarbeitung, das Dokumente durch eine Reihe von Stages transformiert. Jede Stage führt eine Operation auf den Dokumenten aus und gibt das Ergebnis an die nächste Stage weiter.
-</DefinitionBox>
+```ts {1-3|5-7|9-12|all}
+interface Order {
+  id: string
+  status: 'pending' | 'completed'
+}
 
-<Text title="Pipeline-Konzept">
-  Ähnlich wie <HighlightedText>Unix Pipes</HighlightedText>: Daten fließen durch mehrere Verarbeitungsschritte.
-  <SubText>Jeder Schritt transformiert das Ergebnis des vorherigen - ermöglicht komplexe Analysen mit lesbarem Code</SubText>
+type SaveOrder = (order: Order) => Promise<void>
+
+export async function acceptOrder(id: string, save: SaveOrder) {
+  const order: Order = { id, status: 'pending' }
+  await save(order)
+  return { status: 202, body: { id: order.id } }
+}
+```
+
+<SubText>Mit den Pfeiltasten durch die Hervorhebungen wechseln. Der letzte Schritt zeigt den gesamten Ausschnitt.</SubText>
+
+---
+title: Implementierung und Betrieb
+subtitle: Vom lokalen Test zum Rollout
+chapter: 3
+---
+
+<NumberedList title="Prüfpunkte">
+  <li>
+    <span>Erfolgreiches Speichern prüfen</span>
+    <SubText>Die API bestätigt die Annahme und liefert die Bestell-ID zurück.</SubText>
+  </li>
+  <li>
+    <span>Fehler beim Speichern prüfen</span>
+    <SubText>Der Client erhält keine erfolgreiche Bestätigung.</SubText>
+  </li>
+  <li>
+    <span>Verarbeitung und Statuswechsel prüfen</span>
+    <SubText>Ein gespeicherter Auftrag bleibt bis zum Abschluss nachvollziehbar.</SubText>
+  </li>
+  <li>
+    <span>Den Rollout beobachten</span>
+    <SubText>Fehlerrate, Bearbeitungszeit und Anzahl offener Aufträge verfolgen.</SubText>
+  </li>
+</NumberedList>
+
+---
+title: Implementierung und Betrieb
+subtitle: Abbildungen mit Kontext zeigen
+chapter: 3
+---
+
+<Image
+  src="/images/request-flow.svg"
+  alt="Bestellung durchläuft die Zustände angenommen, gespeichert und verarbeitet"
+  caption="Vereinfachter Ablauf einer Bestellung"
+  source="Eigene Darstellung"
+  maxWidth="100%"
+  height="220px"
+/>
+
+<Text title="Eine Abbildung, eine Aussage">
+  Die Zustände machen den <HighlightedText>Fortschritt einer Bestellung</HighlightedText> sichtbar.
+  <SubText>Für eigene Vorträge kann hier ein Screenshot, ein Diagramm oder ein Messergebnis stehen.</SubText>
 </Text>
 
 ---
-title: Aggregation Framework
-subtitle: Aggregation Beispiel
-chapter: 5
+title: Implementierung und Betrieb
+subtitle: Eine Kernaussage hervorheben
+chapter: 3
 ---
 
-```javascript {1-3|4-9|10-17|18-20}
-db.orders.aggregate([
-  // Stage 1: Nur abgeschlossene Bestellungen
-  {
-    $match: {
-      status: "completed",
-      orderDate: { $gte: ISODate("2024-01-01") }
-    }
-  },
-  // Stage 2: Nach Kategorie gruppieren
-  {
-    $group: {
-      _id: "$category",
-      totalRevenue: { $sum: "$amount" },
-      orderCount: { $count: {} },
-      avgOrderValue: { $avg: "$amount" }
-    }
-  },
-  // Stage 3: Nach Umsatz sortieren
-  { $sort: { totalRevenue: -1 } }
-]);
-```
+<Quotebox source="Beispieltext für eine Kernaussage">
+  Eine erfolgreiche Annahme bedeutet in diesem Entwurf: Die Bestellung ist gespeichert. Ihre Verarbeitung folgt anschließend.
+</Quotebox>
+
+<Text title="Konsequenz für den Client">
+  Der Client braucht eine Möglichkeit, den <HighlightedText>Bearbeitungsstatus</HighlightedText> abzufragen.
+  <SubText>Für ein echtes Zitat die genaue Quelle im source-Attribut ergänzen.</SubText>
+</Text>
+
+---
+title: Implementierung und Betrieb
+subtitle: Was bleibt und was noch offen ist
+chapter: 3
+---
+
+<BulletedList title="Ergebnis des Beispiels">
+  <li>Die API bestätigt erst nach erfolgreichem Speichern.</li>
+  <li>Ein separater Worker verarbeitet die Bestellung.</li>
+  <li>Der Client erhält den Bearbeitungsstatus über eine eigene Abfrage.</li>
+</BulletedList>
+
+<Text title="Offene Fragen">
+  Wie behandeln wir doppelte Aufträge? Welche Wiederholungen sind zulässig? Wie lange darf eine Bestellung offen bleiben?
+</Text>
 
 ---
 layout: closing

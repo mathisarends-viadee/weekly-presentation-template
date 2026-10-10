@@ -19,11 +19,17 @@ defineProps({
 
 <template>
   <div class="flex items-center gap-2.5">
-    <OutlineBadge :number="number" :active="active" :disabled="disabled" :size="'sm'" />
+    <OutlineBadge
+      :number="number"
+      :active="active"
+      :disabled="disabled"
+      :size="'sm'"
+      tone="neutral"
+    />
     <span
       class="text-lg font-medium"
       :class="{
-        'text-viadee-highlight': active,
+        'text-viadee-coral-strong': active,
         'text-gray-400': disabled,
         'text-viadee-ink': !active && !disabled
       }"
